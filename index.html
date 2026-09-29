@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Happy Birthday Kaviyaaah ❤️</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden}
+body{
+  font-family:Georgia,"Times New Roman",serif;
+  background:#07030d;color:#fff;
+}
+.page{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;
+  padding:22px;overflow:hidden;
+}
+.page.active{display:flex;animation:pageIn .9s ease both}
+@keyframes pageIn{from{opacity:0;transform:scale(1.03)}to{opacity:1;transform:scale(1)}}
+
+.bg1{background:
+ radial-gradient(circle at 50% 42%,rgba(163,72,210,.45),transparent 30%),
+ radial-gradient(circle at 20% 20%,rgba(255,190,241,.14),transparent 25%),
+ linear-gradient(145deg,#08030e,#1b0928 55%,#050208)}
+.bg2{background:radial-gradient(circle,#24103c,#07030d 70%)}
+.bg3,.bg4,.bg5,.bg6{background:linear-gradient(145deg,#09040e,#160a20,#050208)}
+.bg7{background:
+ radial-gradient(circle at 50% 45%,rgba(215,100,195,.28),transparent 25%),
+ linear-gradient(145deg,#050208,#1a0924,#050208)}
+
+.stars,.hearts{position:absolute;inset:0;pointer-events:none}
+.star{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;opacity:.7;animation:twinkle 2.5s infinite alternate}
+@keyframes twinkle{to{opacity:.15;transform:scale(.5)}}
+
+.card{
+  position:relative;z-index:3;width:min(94vw,560px);max-height:92vh;overflow:auto;
+  padding:34px 24px;border:1px solid rgba(255,255,255,.18);border-radius:30px;
+  background:rgba(255,255,255,.075);backdrop-filter:blur(18px);
+  box-shadow:0 25px 80px rgba(0,0,0,.55),0 0 40px rgba(190,90,230,.12);
+  text-align:center;
+}
+.card::-webkit-scrollbar{display:none}
+
+.kicker{font-size:14px;letter-spacing:4px;text-transform:uppercase;color:#e6c6ef}
+.title{
+  margin-top:12px;font-size:clamp(42px,10vw,78px);line-height:1;
+  letter-spacing:3px;color:#fff;text-shadow:0 0 28px rgba(231,157,255,.65)
+}
+.subtitle{margin-top:20px;font-size:22px;color:#f2d8f5}
+.small{margin-top:10px;color:#cdb8d2;font-family:Arial,sans-serif;font-size:14px}
+
+.btn{
+  margin-top:28px;border:0;border-radius:999px;padding:15px 28px;
+  color:#fff;background:linear-gradient(135deg,#d6a1f7,#9145c8);
+  box-shadow:0 0 28px rgba(202,112,241,.38);font-weight:700;font-size:15px;
+  cursor:pointer;transition:.25s;
+}
+.btn:active{transform:scale(.96)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+
+.bowl{
+  width:210px;height:112px;margin:30px auto 16px;border:2px solid #dcb8ef;
+  border-top:0;border-radius:0 0 110px 110px;
+  background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(171,87,220,.16));
+  box-shadow:0 12px 35px rgba(177,77,219,.28),inset 0 0 22px rgba(255,255,255,.1);
+  position:relative;
+}
+.bowl:before{
+  content:"";position:absolute;left:-7px;right:-7px;top:-7px;height:12px;
+  border:2px solid #dcb8ef;border-radius:50%;background:rgba(255,255,255,.07)
+}
+.bowlButterfly{position:absolute;font-size:32px;left:50%;top:22px;transform:translateX(-50%)}
+.flying{
+  position:fixed;z-index:20;font-size:25px;cursor:pointer;
+  animation:fly 3.2s cubic-bezier(.2,.7,.2,1) forwards;
+  filter:drop-shadow(0 0 8px rgba(255,165,240,.55))
+}
+@keyframes fly{
+  0%{opacity:0;transform:translate(0,0) scale(.4) rotate(0)}
+  15%{opacity:1}
+  100%{opacity:.95;transform:translate(var(--dx),var(--dy)) scale(1) rotate(var(--rot))}
+}
+.nickname{
+  position:fixed;z-index:50;pointer-events:none;color:#ffe2fa;
+  font:700 22px Arial,sans-serif;text-shadow:0 0 18px #ff70d8;
+  animation:nick .9s ease both;
+}
+@keyframes nick{0%{opacity:0;transform:scale(.4) translateY(8px)}55%{transform:scale(1.12)}100%{opacity:1;transform:scale(1)}}
+
+.input{
+  width:90%;max-width:320px;margin:25px auto 0;display:block;padding:15px 18px;
+  border:1px solid #c78ae3;border-radius:16px;background:rgba(0,0,0,.28);
+  color:#fff;text-align:center;font-size:18px;outline:none
+}
+.result{min-height:90px;margin-top:18px}
+.love{font-size:30px;color:#ffc8ef;text-shadow:0 0 22px #e85cc0;animation:pop .8s ease both}
+@keyframes pop{0%{opacity:0;transform:scale(.5)}70%{transform:scale(1.08)}100%{opacity:1;transform:scale(1)}}
+
+.heart{
+  margin:26px auto 8px;font-size:100px;cursor:pointer;
+  filter:drop-shadow(0 0 22px #ff5eae);animation:beat 1.2s infinite
+}
+@keyframes beat{50%{transform:scale(1.13)}}
+.nowplaying{min-height:25px;color:#f2c6e9;font:14px Arial,sans-serif}
+
+.videoWrap{margin-top:22px}
+video{width:100%;max-height:54vh;border-radius:20px;background:#000;display:none}
+.videoHint{color:#d8bfdc;font:14px Arial,sans-serif;margin-top:12px}
+
+.photoWrap{
+  width:100%;height:min(62vh,620px);display:flex;align-items:center;justify-content:center;
+  margin-top:18px
+}
+.photo{
+  max-width:100%;max-height:100%;object-fit:contain;border-radius:22px;
+  box-shadow:0 20px 55px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.16);
+  animation:photoIn .75s ease both
+}
+@keyframes photoIn{from{opacity:0;transform:scale(.96) translateX(18px)}to{opacity:1;transform:scale(1) translateX(0)}}
+.photoCount{margin-top:12px;color:#bfa9c4;font:13px Arial,sans-serif}
+
+.messages{margin-top:20px}
+.msg{
+  opacity:0;transform:translateY(12px);margin:14px 0;padding:14px 15px;
+  border-radius:18px;background:rgba(255,255,255,.06);
+  font-size:18px;color:#f4def6;animation:msgIn .8s ease forwards
+}
+.msg:nth-child(1){animation-delay:.15s}.msg:nth-child(2){animation-delay:.65s}
+.msg:nth-child(3){animation-delay:1.15s}.msg:nth-child(4){animation-delay:1.65s}
+.msg:nth-child(5){animation-delay:2.15s}
+@keyframes msgIn{to{opacity:1;transform:translateY(0)}}
+
+.finalBig{
+  font-size:clamp(38px,10vw,76px);line-height:1.02;
+  color:#ffe0f7;text-shadow:0 0 32px rgba(255,100,215,.65)
+}
+.finalName{margin-top:20px;font-size:30px;color:#fff}
+.finalText{margin-top:30px;font-size:18px;line-height:1.65;color:#e8d4eb}
+.float{
+  position:absolute;bottom:-50px;font-size:24px;animation:up linear forwards;pointer-events:none
+}
+@keyframes up{from{transform:translateY(0) rotate(0);opacity:0}15%{opacity:1}to{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+
+@media(max-width:500px){
+  .card{padding:28px 18px;border-radius:25px}
+  .subtitle{font-size:19px}.title{letter-spacing:1px}
+  .photoWrap{height:58vh}.photo{max-width:96%;max-height:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<section id="p1" class="page active bg1">
+  <div class="stars" id="stars1"></div>
+  <div class="card">
+    <div class="kicker">A little surprise</div>
+    <div class="title">HAPPY<br>BIRTHDAY</div>
+    <div class="subtitle">Special Wish For You ✨</div>
+    <button class="btn" onclick="go(2)">✨ Open Your Surprise ✨</button>
+  </div>
+</section>
+
+<!-- 2 -->
+<section id="p2" class="page bg2">
+  <div class="card">
+    <div class="kicker">Page 02</div>
+    <h2 style="font-size:30px;margin-top:10px">A Little Surprise 🦋</h2>
+    <p class="small">There’s something waiting for you...</p>
+    <div class="bowl" id="bowl"><div class="bowlButterfly">🦋</div></div>
+    <button class="btn" id="releaseBtn" onclick="releaseButterflies()">🦋 CLICK HERE 🦋</button>
+    <button class="btn" id="b2" style="display:none" onclick="go(3)">Continue →</button>
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="p3" class="page bg3">
+  <div class="card">
+    <div class="kicker">Page 03</div>
+    <h2 style="font-size:30px;margin-top:10px">Enter My DOB 💭</h2>
+    <input class="input" id="dob" inputmode="numeric" maxlength="10" placeholder="DD.MM.YYYY">
+    <button class="btn" onclick="checkDob()">💗 Submit</button>
+    <div class="result" id="dobResult"></div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section id="p4" class="page bg4">
+  <div class="card">
+    <div class="kicker">Page 04</div>
+    <h2 style="font-size:28px;margin-top:10px">Unakku Oru Song Dedicated 🎵</h2>
+    <p class="small">Tap the heart to play</p>
+    <div class="heart" onclick="playSong()">❤️</div>
+    <div class="nowplaying" id="songStatus"></div>
+    <audio id="song" src="song.mp3"></audio>
+    <button class="btn" onclick="go(5)">Next →</button>
+  </div>
+</section>
+
+<!-- 5 -->
+<section id="p5" class="page bg5">
+  <div class="card">
+    <div class="kicker">Page 05</div>
+    <h2 style="font-size:28px;margin-top:10px">Unakku Oru Video Dedicated 🎥</h2>
+    <div class="videoWrap">
+      <video id="vid" controls playsinline preload="metadata">
+        <source src="video.mp4" type="video/mp4">
+      </video>
+      <button class="btn" id="watchBtn" onclick="watchVideo()">✨ Click To Watch ✨</button>
+      <div class="videoHint" id="videoHint">Tap the button to reveal your video.</div>
+    </div>
+    <button class="btn" onclick="go(6)">Next →</button>
+  </div>
+</section>
+
+<!-- 6 photo 1 -->
+<section id="p6" class="page bg5">
+  <div class="card">
+    <div class="kicker">A little memory</div>
+    <h2 style="font-size:28px;margin-top:10px">One More Little Memory ❤️</h2>
+    <div class="photoWrap"><img id="photo" class="photo" src="photo1.jpg" alt="Memory photo"></div>
+    <div class="photoCount" id="photoCount">Photo 1 of 2</div>
+    <button class="btn" id="photoBtn" onclick="nextPhoto()">Next →</button>
+  </div>
+</section>
+
+<!-- 7 -->
+<section id="p7" class="page bg6">
+  <div class="card">
+    <div class="kicker">Just for you</div>
+    <h2 style="font-size:30px;margin-top:10px">A Few Things I Wanted To Say 💌</h2>
+    <div class="messages">
+      <div class="msg">You are truly special. ✨</div>
+      <div class="msg">Keep smiling, always. 🌸</div>
+      <div class="msg">You deserve beautiful moments. 💫</div>
+      <div class="msg">Never stop being the amazing person you are. 🦋</div>
+      <div class="msg">Today is your special day. 🎂</div>
+    </div>
+    <button class="btn" onclick="go(8)">Continue →</button>
+  </div>
+</section>
+
+<!-- 8 final -->
+<section id="p8" class="page bg7">
+  <div class="hearts" id="hearts"></div>
+  <div class="card">
+    <div class="finalBig">ONCE AGAIN...</div>
+    <div class="finalBig" style="margin-top:14px">HAPPY BIRTHDAY 🎂</div>
+    <div class="finalName">Kaviyaaah Pondaatii ❤️🦋</div>
+    <div class="finalText">
+      Unakku idhu pudichirukkumnu namburen… ❤️<br><br>
+      Ippadikku,<br>
+      <strong>Un Purushan ❤️</strong>
+    </div>
+  </div>
+</section>
+
+<script>
+let page=1;
+const photoFiles=["photo1.jpg","photo2.jpg"];
+let photoIndex=0;
+const nicknames=["Pondatiii ❤️","Bujju Maa 🥹","Thangoo 💕","Chella Pulla 🦋"];
+
+function go(n){
+  if(page===4 && n!==4){
+    const s=document.getElementById("song");
+    s.pause(); s.currentTime=0;
+    document.getElementById("songStatus").textContent="";
+  }
+  document.getElementById("p"+page).classList.remove("active");
+  page=n;
+  document.getElementById("p"+page).classList.add("active");
+  if(page===8) startFinal();
+}
+
+function checkDob(){
+  const value=document.getElementById("dob").value.trim();
+  const out=document.getElementById("dobResult");
+  if(value==="18.04.2006"){
+    out.innerHTML='<div class="love">Love you dii Pondaaati ❤️</div>'+
+      '<button class="btn" onclick="go(4)">Next →</button>';
+  }else{
+    out.innerHTML='<div style="color:#ffb8e9;margin-top:20px">Try again 💭</div>';
+  }
+}
+
+function playSong(){
+  const s=document.getElementById("song");
+  s.play().then(()=>{
+    document.getElementById("songStatus").textContent="♪ Playing your dedicated song...";
+  }).catch(()=>{
+    document.getElementById("songStatus").textContent="Tap the heart again to play the song.";
+  });
+}
+
+function watchVideo(){
+  const v=document.getElementById("vid");
+  v.style.display="block";
+  document.getElementById("watchBtn").style.display="none";
+  document.getElementById("videoHint").textContent="Your special video ❤️";
+  v.play().catch(()=>{});
+}
+
+function releaseButterflies(){
+  document.getElementById("releaseBtn").disabled=true;
+  const bowl=document.getElementById("bowl");
+  const r=bowl.getBoundingClientRect();
+
+  for(let i=0;i<26;i++){
+    const b=document.createElement("div");
+    b.className="flying";
+    b.textContent="🦋";
+    b.style.left=(r.left+r.width/2-12)+"px";
+    b.style.top=(r.top+35)+"px";
+    b.style.setProperty("--dx",(Math.random()*innerWidth-innerWidth/2)+"px");
+    b.style.setProperty("--dy",(-80-Math.random()*innerHeight*.72)+"px");
+    b.style.setProperty("--rot",(Math.random()*720-360)+"deg");
+
+    b.onclick=()=>{
+      const rect=b.getBoundingClientRect();
+      const n=document.createElement("div");
+      n.className="nickname";
+      n.textContent=nicknames[Math.floor(Math.random()*nicknames.length)];
+      n.style.left=rect.left+"px";
+      n.style.top=rect.top+"px";
+      document.body.appendChild(n);
+      setTimeout(()=>n.remove(),1400);
+    };
+    document.body.appendChild(b);
+    setTimeout(()=>b.remove(),3600);
+  }
+  setTimeout(()=>document.getElementById("b2").style.display="inline-block",1700);
+}
+
+function nextPhoto(){
+  photoIndex++;
+  if(photoIndex>=photoFiles.length){
+    go(7);
+    return;
+  }
+  const img=document.getElementById("photo");
+  img.classList.remove("photo");
+  void img.offsetWidth;
+  img.classList.add("photo");
+  img.src=photoFiles[photoIndex];
+  document.getElementById("photoCount").textContent=`Photo ${photoIndex+1} of ${photoFiles.length}`;
+}
+
+function startStars(){
+  for(let i=0;i<45;i++){
+    const s=document.createElement("div");
+    s.className="star";
+    s.style.left=Math.random()*100+"%";
+    s.style.top=Math.random()*100+"%";
+    s.style.animationDelay=(Math.random()*2.5)+"s";
+    document.getElementById("stars1").appendChild(s);
+  }
+}
+
+function startFinal(){
+  setInterval(()=>{
+    const h=document.createElement("div");
+    h.className="float";
+    h.textContent=Math.random()>.5?"❤️":"🦋";
+    h.style.left=Math.random()*100+"%";
+    h.style.animationDuration=(5+Math.random()*5)+"s";
+    document.getElementById("hearts").appendChild(h);
+    setTimeout(()=>h.remove(),10000);
+  },650);
+}
+startStars();
+</script>
+</body>
+</html>
